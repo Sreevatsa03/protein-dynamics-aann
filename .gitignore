@@ -478,3 +478,10 @@ poetry.toml
 
 # LSP config files
 pyrightconfig.json
+
+# VS Code Python settings
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.code-workspace
