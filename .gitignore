@@ -485,3 +485,10 @@ pyrightconfig.json
 .vscode/launch.json
 .vscode/extensions.json
 .vscode/*.code-workspace
+
+# Word documents
+*.docx
+*.docm
+*.dotx
+*.dotm
+*.doc
