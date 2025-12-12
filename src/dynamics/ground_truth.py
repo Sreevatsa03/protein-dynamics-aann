@@ -26,10 +26,10 @@ def build_gt_W(
 
     # sample positive magnitudes
     dist = LogNormal(mu, sigma)
-    magnitudes = dist.sample((d, d))
+    W = dist.sample((d, d))
 
     # apply signs from S
-    W_eff = S * magnitudes
+    W_eff = S * W
 
     # compute current spectral radius
     eigenvalues = torch.linalg.eigvals(W_eff)

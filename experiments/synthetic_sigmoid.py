@@ -2,8 +2,9 @@ from pathlib import Path
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 
-from src.dynamics.simulate import make_transition_dataset
 from src.dynamics.masks import make_signed_mask
+from src.dynamics.ground_truth import build_gt_W
+from src.dynamics.simulate import simulate_trajectories, make_transition_dataset
 from src.models.masked_aann import SigmoidAANN
 from src.training.trainer import Trainer, TrainingConfig, OptimizerConfig
 from src.utils.seed import set_seed
@@ -16,50 +17,60 @@ def main():
     """
     set_seed(42)
 
-    # paths
-    checkpoint = Path("experiments/results/sigmoid/best_model.pt")
-    checkpoint.parent.mkdir(parents=True, exist_ok=True)
-
-    # data generation
-    x_t, x_t1, mask = make_transition_dataset(
-        state_dim=12,
-        num_sequences=5,
-        timesteps=400,
-        alpha=0.9,
-        noise_std=0.02,
-        mask_fn=make_signed_mask,
+    # generate signed mask
+    S = make_signed_mask(
+        d=12,
+        min_deg=3,
+        max_deg=5
     )
 
-    # split dataset
-    N = x_t.shape[0]
-    n_train = int(0.7 * N)
-    n_val = int(0.15 * N)
+    # generate ground-truth mask and weights
+    W_eff = build_gt_W(
+        S=S,
+        mu=-1.2,
+        sigma=0.6,
+        target_radius=0.9,
+    )
 
-    x_train, y_train = x_t[:n_train], x_t1[:n_train]
-    x_val, y_val = x_t[n_train:n_train + n_val], x_t1[n_train:n_train + n_val]
+    # simulate trajectories
+    trajectories = simulate_trajectories(
+        W_eff=W_eff,
+        T=400,
+        n_seqs=5,
+        alpha=0.9,
+        noise_std=0.02,
+    )
+
+    # build transition dataset
+    (X_train, Y_train), (X_val, Y_val), (X_test, Y_test) = make_transition_dataset(
+        trajectories,
+        train_p=0.7,
+        val_p=0.15,
+    )
 
     # dataloaders
     train_loader = DataLoader(
-        TensorDataset(x_train, y_train),
+        TensorDataset(X_train, Y_train),
         batch_size=64,
-        shuffle=True,
-    )
+        shuffle=True)
     val_loader = DataLoader(
-        TensorDataset(x_val, y_val),
+        TensorDataset(X_val, Y_val),
         batch_size=64,
-        shuffle=False,
-    )
+        shuffle=False)
 
     # model
     device = torch.device(
         "mps" if torch.backends.mps.is_available() else "cpu")
     model = SigmoidAANN(
         state_dim=12,
-        mask=mask,
+        mask=S,
         device=device,
     )
 
     # configs
+    checkpoint = Path("experiments/results/sigmoid/best_model.pt")
+    checkpoint.parent.mkdir(parents=True, exist_ok=True)
+
     opt_cfg = OptimizerConfig(
         lr=1e-2,
         momentum=0.9,
@@ -83,9 +94,9 @@ def main():
 
     results = trainer.train()
 
-    print("sigmoid AANN finished.")
-    print(f"best val loss: {results['best_val_loss']:.6f}")
-    print(f"checkpoint saved to: {results['checkpoint']}")
+    print("Sigmoid AANN finished.")
+    print(f"Best val loss: {results['best_val_loss']:.6f}")
+    print(f"Checkpoint saved to: {results['checkpoint']}")
 
 
 if __name__ == "__main__":

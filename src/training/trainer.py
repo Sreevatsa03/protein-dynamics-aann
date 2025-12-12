@@ -197,5 +197,6 @@ class Trainer:
         :param path: path to the checkpoint
         :type path: Path
         """
-        state_dict = torch.load(path, map_location=self.device)
+        state_dict = torch.load(
+            path, map_location=self.device, weights_only=True)
         self.model.load_state_dict(state_dict)
