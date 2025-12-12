@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\setstretch{1.05}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\titleformat*{\section}{\large\bfseries}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{APMTH 226 — Project Proposal}}\\[6pt]
+{\large Sreevatsa Nukala} - {\small Working individually}\\
+{{Nov 14, 2025}}\\[6pt]
+\textbf{Auto-Associative Neural Networks for Protein Interaction Dynamics: Reproduction, Stability Analysis, and Learning-Rule Extensions}
+\end{center}
+
+\section*{Project Idea}
+This project will reproduce and extend the work of Samarasinghe et al.~\cite{SAMARASINGHE2025105613}, which modeled a 12-protein mammalian cell-cycle network using auto-associative neural networks (AANNs).  
+The original study showed that AANNs with sigmoid neurons accurately captured protein dynamics, while linear or randomly connected networks failed to do so.
+
+\section*{Reproduction + Extension}
+I will reconstruct their experiments using the published connectivity matrix and weight tables, implementing masked AANNs in PyTorch. Without access to their simulated dataset, I will simulate data that mimics described dynamics. My goals will be to replicate training-loss and trajectory results for linear vs sigmoid AANNs, confirm that accurate dynamics can emerge without correct structural edges, and verify that adding recurrence improves fidelity.
+
+To extend the analysis, I will perform the following investigations:
+\begin{itemize}
+\item Perform a fixed-point and Jacobian eigenvalue analysis of the learned network to study stability and attractor structure, drawing parallels to Hopfield-network energy formulations.  
+\item Re-train the same network using a biologically plausible contrastive Hebbian learning rule~\cite{MOVELLAN199110} and compare convergence and generalization against gradient-based training.  
+\item Quantify structure-function non-identifiability by testing how many weight configurations yield near-identical dynamics, relating this to Gardner’s capacity framework.  
+\end{itemize}
+
+\section*{Expected Outcomes}
+Reproduced AANNs should match reported dynamics (low MSE for sigmoid networks, degraded fits for linear ones).  
+Eigenvalue and Lyapunov analyses are expected to reveal stable attractors corresponding to cell-cycle states.  
+Contrastive Hebbian training should reach comparable accuracy but slower convergence, illustrating trade-offs between biological plausibility and efficiency.  
+The final report will include quantitative results, phase-portrait visualizations, and theoretical discussion linking these findings to Hopfield-style dynamics and capacity limits.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\end{document}
