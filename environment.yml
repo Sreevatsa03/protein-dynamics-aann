@@ -1,0 +1,26 @@
+name: protein-dynamics
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12.12
+  - pip
+  - numpy
+  - scipy
+  - matplotlib
+  - jupyterlab
+  - pandas
+  - seaborn
+
+  # PyTorch (stable) with MPS support
+  - pytorch
+  - torchvision
+  - torchaudio
+
+  # pip-only packages (if needed)
+  - pip:
+      - tqdm
+      - einops
+      - scikit-learn
