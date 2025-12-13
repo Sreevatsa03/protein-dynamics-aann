@@ -492,3 +492,26 @@ pyrightconfig.json
 *.dotx
 *.dotm
 *.doc
+
+# Archived Runs
+archive/random_mask/results/plots/traj_linear_protein_1.png
+archive/random_mask/results/plots/traj_linear_protein_2.png
+archive/random_mask/results/plots/traj_linear_protein_3.png
+archive/random_mask/results/plots/traj_linear_protein_4.png
+archive/random_mask/results/plots/traj_linear_protein_5.png
+archive/random_mask/results/plots/traj_linear_protein_6.png
+archive/random_mask/results/plots/traj_linear_protein_7.png
+archive/random_mask/results/plots/traj_linear_protein_8.png
+archive/random_mask/results/plots/traj_linear_protein_9.png
+archive/random_mask/results/plots/traj_linear_protein_11.png
+
+archive/random_mask/results/plots/traj_sigmoid_protein_1.png
+archive/random_mask/results/plots/traj_sigmoid_protein_2.png
+archive/random_mask/results/plots/traj_sigmoid_protein_3.png
+archive/random_mask/results/plots/traj_sigmoid_protein_4.png
+archive/random_mask/results/plots/traj_sigmoid_protein_5.png
+archive/random_mask/results/plots/traj_sigmoid_protein_6.png
+archive/random_mask/results/plots/traj_sigmoid_protein_7.png
+archive/random_mask/results/plots/traj_sigmoid_protein_8.png
+archive/random_mask/results/plots/traj_sigmoid_protein_9.png
+archive/random_mask/results/plots/traj_sigmoid_protein_11.png
