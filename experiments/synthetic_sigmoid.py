@@ -8,6 +8,7 @@ from src.dynamics.simulate import simulate_trajectories, make_transition_dataset
 from src.models.masked_aann import SigmoidAANN
 from src.training.trainer import Trainer, TrainingConfig, OptimizerConfig
 from src.utils.seed import set_seed
+from src.utils.io import save_json
 
 
 def main():
@@ -94,8 +95,18 @@ def main():
 
     results = trainer.train()
 
+    # save loss curves
+    save_json(
+        "experiments/results/sigmoid/losses.json",
+        {
+            "train": results["train_losses"],
+            "val": results["val_losses"],
+        },
+    )
+
     print("Sigmoid AANN finished.")
     print(f"Best val loss: {results['best_val_loss']:.6f}")
+    print(f"Loss histories saved to: experiments/results/sigmoid/losses.json")
     print(f"Checkpoint saved to: {results['checkpoint']}")
 
 
