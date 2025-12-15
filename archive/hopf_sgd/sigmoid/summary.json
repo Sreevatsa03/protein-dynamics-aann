@@ -1,0 +1,16 @@
+{
+  "model_type": "sigmoid",
+  "seed": 42,
+  "batch_size": 128,
+  "lr": 0.001,
+  "num_epochs": 500,
+  "patience": 50,
+  "epochs_trained": 500,
+  "final_train_loss": 0.03870978332915396,
+  "final_val_loss": 0.03831741666155202,
+  "best_val_loss": 0.03831741666155202,
+  "dataset_seed": 42,
+  "dataset_dt": 0.02,
+  "dataset_T_obs": 350,
+  "dataset_n_seqs": 24
+}

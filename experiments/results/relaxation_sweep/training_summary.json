@@ -1,0 +1,47 @@
+{
+  "basin_0.1": {
+    "best_val_loss": 0.008059170023587189,
+    "final_train_loss": 0.008398035547385612,
+    "final_val_loss": 0.008059170023587189,
+    "n_epochs": 1000,
+    "lr": 0.01,
+    "batch_size": 128,
+    "seed": 42
+  },
+  "basin_0.3": {
+    "best_val_loss": 0.00647436300488679,
+    "final_train_loss": 0.006691579837352037,
+    "final_val_loss": 0.00647436300488679,
+    "n_epochs": 1000,
+    "lr": 0.01,
+    "batch_size": 128,
+    "seed": 42
+  },
+  "basin_0.5": {
+    "best_val_loss": 0.006399059766217282,
+    "final_train_loss": 0.006572685719778141,
+    "final_val_loss": 0.006399059766217282,
+    "n_epochs": 1000,
+    "lr": 0.01,
+    "batch_size": 128,
+    "seed": 42
+  },
+  "basin_0.7": {
+    "best_val_loss": 0.00663165260400427,
+    "final_train_loss": 0.0067851286257306735,
+    "final_val_loss": 0.00663165260400427,
+    "n_epochs": 1000,
+    "lr": 0.01,
+    "batch_size": 128,
+    "seed": 42
+  },
+  "basin_0.9": {
+    "best_val_loss": 0.007092601938271209,
+    "final_train_loss": 0.00723153816536069,
+    "final_val_loss": 0.007092601938271209,
+    "n_epochs": 1000,
+    "lr": 0.01,
+    "batch_size": 128,
+    "seed": 42
+  }
+}

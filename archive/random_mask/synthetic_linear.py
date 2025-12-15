@@ -2,9 +2,9 @@ from pathlib import Path
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 
-from src.dynamics.masks import make_signed_mask
+from src.dynamics.masks import make_random_mask
 from src.dynamics.ground_truth import build_gt_W
-from src.dynamics.simulate import simulate_trajectories, make_transition_dataset
+from src.dynamics.simulate import simulate_dt_sigmoid_dynamics, make_transition_dataset
 from src.models.masked_aann import LinearAANN
 from src.training.trainer import Trainer, TrainingConfig, OptimizerConfig
 from src.utils.seed import set_seed
@@ -19,7 +19,7 @@ def main():
     set_seed(42)
 
     # generate signed mask
-    S = make_signed_mask(
+    S = make_random_mask(
         d=12,
         min_deg=3,
         max_deg=5
@@ -34,7 +34,7 @@ def main():
     )
 
     # simulate trajectories
-    trajectories = simulate_trajectories(
+    trajectories = simulate_dt_sigmoid_dynamics(
         W_eff=W_eff,
         T=400,
         n_seqs=5,

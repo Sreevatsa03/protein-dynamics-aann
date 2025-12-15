@@ -1,0 +1,47 @@
+{
+  "basin_0.1": {
+    "basin_strength": 0.1,
+    "n_seqs_train": 24,
+    "n_seqs_val": 6,
+    "T_obs": 400,
+    "n_transitions_train": 9576,
+    "n_transitions_val": 2394,
+    "seed": 42
+  },
+  "basin_0.3": {
+    "basin_strength": 0.3,
+    "n_seqs_train": 24,
+    "n_seqs_val": 6,
+    "T_obs": 400,
+    "n_transitions_train": 9576,
+    "n_transitions_val": 2394,
+    "seed": 42
+  },
+  "basin_0.5": {
+    "basin_strength": 0.5,
+    "n_seqs_train": 24,
+    "n_seqs_val": 6,
+    "T_obs": 400,
+    "n_transitions_train": 9576,
+    "n_transitions_val": 2394,
+    "seed": 42
+  },
+  "basin_0.7": {
+    "basin_strength": 0.7,
+    "n_seqs_train": 24,
+    "n_seqs_val": 6,
+    "T_obs": 400,
+    "n_transitions_train": 9576,
+    "n_transitions_val": 2394,
+    "seed": 42
+  },
+  "basin_0.9": {
+    "basin_strength": 0.9,
+    "n_seqs_train": 24,
+    "n_seqs_val": 6,
+    "T_obs": 400,
+    "n_transitions_train": 9576,
+    "n_transitions_val": 2394,
+    "seed": 42
+  }
+}

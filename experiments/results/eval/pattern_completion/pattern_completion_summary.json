@@ -1,0 +1,36 @@
+{
+  "gaussian": {
+    "Linear": {
+      "final_dist_to_ref": 0.9405182003974915,
+      "final_dist_to_mean": 0.002020839136093855,
+      "recovery_ratio": -0.9384973612613976
+    },
+    "Sigmoid": {
+      "final_dist_to_ref": 0.9404935240745544,
+      "final_dist_to_mean": 0.00820369366556406,
+      "recovery_ratio": -0.9322898304089904
+    },
+    "Mean": {
+      "final_dist_to_ref": 0.9403101205825806,
+      "final_dist_to_mean": 0.0,
+      "recovery_ratio": -0.9403101205825806
+    }
+  },
+  "masking": {
+    "Linear": {
+      "final_dist_to_ref": 0.9405182003974915,
+      "final_dist_to_mean": 0.002020839136093855,
+      "recovery_ratio": -0.9384973612613976
+    },
+    "Sigmoid": {
+      "final_dist_to_ref": 0.9404935240745544,
+      "final_dist_to_mean": 0.00820369366556406,
+      "recovery_ratio": -0.9322898304089904
+    },
+    "Mean": {
+      "final_dist_to_ref": 0.9403101205825806,
+      "final_dist_to_mean": 0.0,
+      "recovery_ratio": -0.9403101205825806
+    }
+  }
+}

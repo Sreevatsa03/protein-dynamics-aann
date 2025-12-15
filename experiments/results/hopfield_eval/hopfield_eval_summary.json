@@ -1,0 +1,56 @@
+{
+  "hopfield_scale": 1.0,
+  "noise_std": 0.15,
+  "n_trials_per_phase": 25,
+  "K_iterations": 100,
+  "results": {
+    "SGD Linear": {
+      "final_dist_to_ref": 0.8463221788406372,
+      "final_dist_to_mean": 0.28613537549972534,
+      "recovery_ratio": -0.5601868033409119,
+      "phase_recovery_accuracy": 0.25
+    },
+    "SGD Sigmoid": {
+      "final_dist_to_ref": 0.9447476267814636,
+      "final_dist_to_mean": 0.11132686585187912,
+      "recovery_ratio": -0.8334207609295845,
+      "phase_recovery_accuracy": 0.25
+    },
+    "Hebbian Linear": {
+      "final_dist_to_ref": 0.9479324221611023,
+      "final_dist_to_mean": 0.0020208389032632113,
+      "recovery_ratio": -0.9459115832578391,
+      "phase_recovery_accuracy": 0.25
+    },
+    "Hebbian Sigmoid": {
+      "final_dist_to_ref": 0.9480370879173279,
+      "final_dist_to_mean": 0.008203692734241486,
+      "recovery_ratio": -0.9398333951830864,
+      "phase_recovery_accuracy": 0.25
+    },
+    "Hopfield Linear": {
+      "final_dist_to_ref": 0.9688196778297424,
+      "final_dist_to_mean": 0.20366035401821136,
+      "recovery_ratio": -0.7651593238115311,
+      "phase_recovery_accuracy": 0.25
+    },
+    "Hopfield Sigmoid": {
+      "final_dist_to_ref": 0.9493366479873657,
+      "final_dist_to_mean": 0.080848827958107,
+      "recovery_ratio": -0.8684878200292587,
+      "phase_recovery_accuracy": 0.25
+    },
+    "Hopfield Dense": {
+      "final_dist_to_ref": 0.2345961332321167,
+      "final_dist_to_mean": 0.9892006516456604,
+      "recovery_ratio": 0.7546045184135437,
+      "phase_recovery_accuracy": 0.83
+    },
+    "Mean": {
+      "final_dist_to_ref": 0.9477250576019287,
+      "final_dist_to_mean": 0.0,
+      "recovery_ratio": -0.9477250576019287,
+      "phase_recovery_accuracy": 0.25
+    }
+  }
+}

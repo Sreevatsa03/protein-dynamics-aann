@@ -4,8 +4,12 @@ import torch
 
 
 def set_seed(seed: int) -> None:
-    """
-    Set all RNG seeds for reproducibility.
+    """set all rng seeds for reproducibility.
+
+    :param seed: base seed to apply across python, numpy and torch
+    :type seed: int
+    :return: none
+    :rtype: None
     """
     random.seed(seed)
     np.random.seed(seed)

@@ -515,3 +515,13 @@ archive/random_mask/results/plots/traj_sigmoid_protein_7.png
 archive/random_mask/results/plots/traj_sigmoid_protein_8.png
 archive/random_mask/results/plots/traj_sigmoid_protein_9.png
 archive/random_mask/results/plots/traj_sigmoid_protein_11.png
+
+# Report
+report/*
+
+# Future work
+src/dynamics/fixed_points.py
+src/config.py
+src/models/recurrent.py
+src/models/hybrid.py
+src/evaluation/version_space.py
