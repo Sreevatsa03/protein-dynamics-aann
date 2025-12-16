@@ -14,7 +14,7 @@ def main():
     set_seed(seed)
 
     # output directory
-    outdir = Path("data/synthetic")
+    outdir = Path("data/hopf")
     outdir.mkdir(parents=True, exist_ok=True)
 
     # device and dtype

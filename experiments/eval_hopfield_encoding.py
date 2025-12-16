@@ -1,19 +1,3 @@
-"""
-Evaluate Hopfield-encoded AANNs vs SGD/Hebbian-trained AANNs on phase data.
-
-This script compares:
-1. SGD-trained Linear AANN
-2. SGD-trained Sigmoid AANN
-3. Hebbian-trained Linear AANN (if available)
-4. Hebbian-trained Sigmoid AANN (if available)
-5. Hopfield-encoded Linear AANN (analytically computed)
-6. Hopfield-encoded Sigmoid AANN (analytically computed)
-7. Mean baseline
-
-The key hypothesis: Hopfield-encoded Sigmoid should show pattern recovery,
-while learned models collapse to mean.
-"""
-
 import argparse
 import json
 from pathlib import Path
@@ -31,9 +15,7 @@ from src.models.masked_aann import (
     create_hopfield_sigmoid_aann,
     create_hopfield_sigmoid_aann_dense,
 )
-from src.evaluation.metrics import mse, per_protein_r2, open_loop_rollout
 from src.evaluation.plots import (
-    plot_rollout_mse_multi,
     plot_recovery_distance_vs_iter,
     plot_final_recovery_bar,
     plot_recovery_ratio_bar,
@@ -316,10 +298,10 @@ def main():
     predictors["Hopfield Dense"] = hopfield_sigmoid_dense
     print(f"  Created dense Hopfield Sigmoid (no mask - positive control)")
 
-    # Mean baseline
+    # mean baseline
     predictors["Mean"] = MeanPredictor(mean_state)
 
-    # Pattern completion evaluation
+    # pattern completion evaluation
     print("\nPattern Completion Evaluation...")
     print("  (Starting from corrupted phase states)")
 
@@ -335,7 +317,7 @@ def main():
 
     # print results
     print("\n" + "=" * 80)
-    print("PATTERN COMPLETION RESULTS")
+    print("Pattern Completion Results")
     print("=" * 80)
     print(f"{'Model':<20} {'Dist to Ref':>12} {'Dist to Mean':>12} {'Recovery':>10} {'Phase Acc':>10}")
     print("-" * 80)

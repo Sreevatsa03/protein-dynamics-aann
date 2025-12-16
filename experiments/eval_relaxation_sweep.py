@@ -1,10 +1,3 @@
-"""
-Evaluate pattern completion for models trained with varying basin strengths.
-
-This script tests whether smooth attractor basins enable SGD learning by
-measuring phase recovery accuracy as a function of basin strength.
-"""
-
 import torch
 import numpy as np
 from pathlib import Path
@@ -101,8 +94,6 @@ def evaluate_pattern_completion(
 
 
 def main():
-    """Evaluate all trained models."""
-
     device = torch.device("cpu")
     base_model_dir = Path("experiments/results/relaxation_sweep")
     output_dir = Path("experiments/results/relaxation_sweep_eval")
@@ -113,9 +104,7 @@ def main():
 
     basin_strengths = [0.1, 0.3, 0.5, 0.7, 0.9]
 
-    print("=" * 60)
     print("Evaluating Pattern Completion vs Basin Strength")
-    print("=" * 60)
 
     results_by_basin = {}
 
@@ -193,19 +182,14 @@ def main():
     print(f"\nPlots saved to: {output_dir}")
 
     # print summary table
-    print("\n" + "=" * 60)
     print("Summary Table")
-    print("=" * 60)
     print(f"{'Basin':<10} {'Phase Acc':<15} {'Recovery':<15}")
-    print("-" * 60)
     for basin in basin_vals:
         acc = results_by_basin[basin]["phase_accuracy"] * 100
         rec = results_by_basin[basin]["recovery"]
         print(f"{basin:<10.1f} {acc:<15.1f}% {rec:<15.4f}")
-    print("=" * 60)
 
     print(f"\nResults saved to: {output_dir}/eval_results.json")
-    print("Evaluation complete!")
 
 
 if __name__ == "__main__":

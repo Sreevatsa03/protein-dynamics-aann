@@ -1,9 +1,3 @@
-"""
-Train SGD sigmoid models on datasets with varying basin strengths.
-
-This script trains a model on each dataset and saves the results.
-"""
-
 import torch
 from torch.utils.data import DataLoader, TensorDataset
 from pathlib import Path
@@ -93,8 +87,6 @@ def train_model(
 
 
 def main():
-    """Train models on all datasets."""
-
     base_data_dir = Path("data/relaxation_sweep")
     base_output_dir = Path("experiments/results/relaxation_sweep")
 

@@ -1,10 +1,3 @@
-"""
-Generate phase dynamics datasets with varying basin strengths.
-
-This script creates multiple datasets with different relaxation strengths
-to test the hypothesis: smooth attractor basins enable SGD learning.
-"""
-
 import torch
 from pathlib import Path
 import json
@@ -75,24 +68,20 @@ def generate_dataset(
     with open(output_dir / "meta.json", "w") as f:
         json.dump(meta, f, indent=2)
 
-    print(f"  Train transitions: {len(train_transitions_x)}")
-    print(f"  Val transitions: {len(val_transitions_x)}")
-    print(f"  Saved to: {output_dir}")
+    print(f"Train transitions: {len(train_transitions_x)}")
+    print(f"Val transitions: {len(val_transitions_x)}")
+    print(f"Saved to: {output_dir}")
 
     return meta
 
 
 def main():
-    """Generate datasets with varying basin strengths."""
-
     base_dir = Path("data/relaxation_sweep")
 
     # test range of basin strengths
     basin_strengths = [0.1, 0.3, 0.5, 0.7, 0.9]
 
-    print("=" * 60)
-    print("Generating Relaxation Sweep Datasets")
-    print("=" * 60)
+    print("Generating relaxation sweep datasets...")
 
     all_meta = {}
 
@@ -112,10 +101,7 @@ def main():
     with open(base_dir / "sweep_summary.json", "w") as f:
         json.dump(all_meta, f, indent=2)
 
-    print("\n" + "=" * 60)
-    print("Dataset generation complete!")
     print(f"Summary saved to: {base_dir}/sweep_summary.json")
-    print("=" * 60)
 
 
 if __name__ == "__main__":
