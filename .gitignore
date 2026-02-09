@@ -519,6 +519,9 @@ archive/random_mask/results/plots/traj_sigmoid_protein_11.png
 # Report
 report/*
 
+# Arxiv upload
+arxiv/*
+
 # Future work
 src/dynamics/fixed_points.py
 src/config.py
